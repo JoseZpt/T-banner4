@@ -21,3 +21,6 @@ Cuenta con 14 banners pre-establecidos y cuenta con 1 opcion para agregar algun 
 * ` cd T-banner4`
 * ` chmod +x *`
 * ` bash T-banner `
+
+# Creditos
+<li><a href="https://github.com/DeepSociety">DeepSociety</font></a></li>
