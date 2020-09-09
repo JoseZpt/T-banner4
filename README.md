@@ -1,5 +1,4 @@
 # T-banner4
-![ofusca](https://blog.reaccionestudio.com/wp-content/uploads/2013/04/ofuscar_javascript.png) 
 <a href="https://github.com/Anonymous-Zpt"><img title="Author" src="https://img.shields.io/badge/Author-Anonymous%20Zpt-svg?style=for-the-badge&logo=github"></a>
 <a href="#"><img title="Open Source" src="https://img.shields.io/badge/Open%20Source-%E2%9D%A4-green?style=for-the-badge"></a>
 <div align="center">
