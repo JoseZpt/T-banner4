@@ -1,6 +1,6 @@
 #!/bin/bash
-g="${b}\033[1;30m"
 b="\033[0m"
+g="${b}\033[1;30m"
 b1="$b\033[1;37m"
 r="${b}\033[1;31m"
 r1="${b}\033[31m"
@@ -17,13 +17,13 @@ a1="$b\033[33m"
 cy="$b\033[38;2;23;147;209m"
 trap Adios INT
 Adios() {
-echo
-sleep 0.3
-printf "$v [$b1+$v]${b1} Finalizado\n"
-printf "$v [$b1+$v]${b1} Anonymous Zpt$b\n "
-echo
-sleep 0.3
-exit
+  echo
+  sleep 0.3
+  printf "$v [$b1+$v]${b1} Finalizado\n"
+  printf "$v [$b1+$v]${b1} Anonymous Zpt$b\n "
+  echo
+  sleep 0.3
+  exit
 }
 case $(command -v python2) in
 "")
