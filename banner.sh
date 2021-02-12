@@ -17,6 +17,7 @@ a1="$b\033[33m"     #Amarillo2
 g="${b}\033[1;30m"  #Gris
 cy="$b\033[38;2;23;147;209m" #Cyan
 jk="$(ping -c 1 -q www.google.com >&/dev/null; echo $?)" #Coneccion de internet
+pwdbanner=$PWD #Ruta actual
 
 #Salida forzada
 trap Adios INT
@@ -236,11 +237,18 @@ titilo() {
 banner
 color
 titilo
+
 if [ -e $PREFIX/etc/motd ]; then
 rm $PREFIX/etc/motd
 fi
+
+#Rescribir el banner dependiendo del sistema
+case "$OSTYPE" in
+cygwin*)
+;;
+linux-androideabi)
+
 if [ -e $PREFIX/etc/bash.bashrc ]; then
-echo "x"
 rm $PREFIX/etc/bash.bashrc
 echo "
 if [ -x /data/data/com.termux/files/usr/libexec/termux/command-not-found ]; then
@@ -258,6 +266,49 @@ figlet -cf slant \"$OSTYPE\";
 figlet -cf big\"${local:0:11}:8080\" ||cowsay sorry
 ">$PREFIX/etc/bash.bashrc
 fi
+;;
+linux-gnu)
+
+
+#alias de linux
+echo "#User default
+alias vim='vim -p'
+setterm -foreground red
+figlet -cf big \"JIN26\";
+python2 $pwdbanner/Banner.py
+setterm -foreground green
+figlet -cf slant \"$OSTYPE\"
+local=$(hostname -I)
+figlet -cf slant \"${local:0:11}:8080\" ||cowsay sorry
+
+case '$OSTYPE' in
+    cygwin*)
+        alias open="cmd /c start"
+        ;;
+    linux-androideabi)
+        alias start="xdg-open"
+        alias open="xdg-open"
+        ;;
+    linux-gnu)
+        alias start="xdg-open"
+        alias open="xdg-open"
+        ;;
+    darwin*)
+        alias start="open"
+        ;;
+esac">~/.bash_aliases
+# "# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+#if [ -f ~/.bash_aliases ]; then
+#. ~/.bash_aliases
+#fi">>~/.bashrc
+;;
+darwin*)
+;;
+esac
 
 rm Banner.py &>> /dev/null
 echo "#!/bin/python2
