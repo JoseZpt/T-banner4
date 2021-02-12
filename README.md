@@ -25,3 +25,4 @@ Cuenta con mas de 14 banners pre-establecidos y cuenta con 1 opcion para agregar
 
 # Creditos
 <li><a href="https://github.com/DeepSociety">DeepSociety</font></a></li>
+<a href="https://github.com/Anonymous-Zpt/T-Banner4">Anonymous-Zpt</a>

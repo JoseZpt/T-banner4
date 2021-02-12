@@ -260,10 +260,11 @@ fi
 PS1='Jin$ '
 setterm -foreground red
 figlet -cf big \"JIN26\";
-python2 Banner
+python2 $pwdbanner/Banner.py
 setterm -foreground green
 figlet -cf slant \"$OSTYPE\";
-figlet -cf big\"${local:0:11}:8080\" ||cowsay sorry
+local=$(hostname -i)
+figlet -cf big \"${local:0:11}:8080\" ||cowsay sorry
 ">$PREFIX/etc/bash.bashrc
 fi
 ;;
