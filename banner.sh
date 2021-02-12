@@ -236,13 +236,13 @@ titilo() {
 banner
 color
 titilo
-
 if [ -e $PREFIX/etc/motd ]; then
 rm $PREFIX/etc/motd
 fi
 if [ -e $PREFIX/etc/bash.bashrc ]; then
+echo "x"
 rm $PREFIX/etc/bash.bashrc
-echo '
+echo "
 if [ -x /data/data/com.termux/files/usr/libexec/termux/command-not-found ]; then
   command_not_found_handle() {
     /data/data/com.termux/files/usr/libexec/termux/command-not-found "$1"
@@ -251,68 +251,68 @@ fi
 
 PS1='Jin$ '
 setterm -foreground red
-figlet -cf big JIN26";
+figlet -cf big \"JIN26\";
 python2 Banner
 setterm -foreground green
-figlet -cf slant $OSTYPE";
-figlet -cf big "${local:0:11}:8080" ||cowsay sorry
+figlet -cf slant \"$OSTYPE\";
+figlet -cf big\"${local:0:11}:8080\" ||cowsay sorry
+">$PREFIX/etc/bash.bashrc
+fi
 
-'>$PREFIX/etc/bash.bashrc
-
-rm Banner &>> /dev/null
-echo "
-#!/bin/python2
+rm Banner.py &>> /dev/null
+echo "#!/bin/python2
 #coding=utf-8
 import os,sys,time
 def maung(n):
-for m in n + '\n':
-  sys.stdout.write(m)
-  sys.stdout.flush()
-  time.sleep(0.001)
-  banner = """
-  $Color
-  $banner
-  $b"""\n
-  os.system("clear")
-  maung(banner)" > Banner
-  case $veces in
-    "")
-      veces=40
-      i=1
-      while [ $i -le $veces ]; do
-        nn=$(($i + 1))
-        echo 'os.system("clear")' >> Banner
-        echo "print (banner)" >> Banner
-      done
-      echo "print" >> Banner
-      sleep 1
-      ;;
-    *)
-      i=1
-      while [ $i -le $veces ]; do
-        i=$(($i + 1))
-        echo 'os.system("clear")' >> Banner
-        echo "print (banner)" >> Banner
-      done
-      echo "print" >> Banner
-      sleep 1
-  esac
-  if [ -e .Banner ]; then
-  rm .Banner
-  fi
-  autor
-  echo -ne "${v}Ver Banner(y/n):$b "
-  read yaa
-  case $yaa in
-    y|Y)
-      python2 Banner
+  for m in n + '\n':
+    sys.stdout.write(m)
+    sys.stdout.flush()
+    time.sleep(0.001)
+banner = \"\"\"">Banner.py
+printf "$Color\n">>Banner.py
+printf "$banner">>Banner.py
+printf "$b\"\"\"\n">>Banner.py
+echo "os.system(\"clear\")
+maung(banner)" >> Banner.py
+case $veces in
+  "")
+    veces=40
+    i=1
+    while [ $i -le $veces ]; do
+      i=$(($i + 1))
+      echo 'os.system("clear")' >> Banner.py
+      echo "print (banner)" >> Banner.py
+    done
+    echo "print" >> Banner.py
+    sleep 1
     ;;
-    n|N)
-      echo -e "$b"
-      exit
+  *)
+    i=1
+    while [ $i -le $veces ]; do
+      i=$(($i + 1))
+      echo 'os.system("clear")' >> Banner.py
+      echo "print (banner)" >> Banner.py
+    done
+    echo "print" >> Banner.py
+    sleep 1
+esac
+if [ -e .Banner ]; then
+rm .Banner
+fi
+autor
+echo -ne "${v}Ver Banner(y/n):$b "
+read yaa
+case $yaa in
+  y|Y)
+    python2 Banner.py
     ;;
-    *)
-      echo -e "$b"
-      exit
-  esac
+  n|N)
+    echo -e "$b"
+    exit
+    ;;
+  *)
+    echo -e "$b"
+    exit
+esac
 exit
+
