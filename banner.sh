@@ -12,14 +12,6 @@
 trap Adios INT
 
 read
-#Datos del autor
-autor() {
-  sleep 0.0
-  echo -e "\n
-  $A[$b1+$A]${b1} Creador:$cy    JIN26\n
-  $A[$b1+$A]${b1} Herramienta:$a Banner\n
-  $A[$b1+$A]${b1} GitHub:$a      https://github.com/JIN26\n\n"
-}
 
 #chequeo de packete figlet,python2,setterm,nvim
 case $(command -v figlet && command -v python2 && command -v setterm && command -v nvim) in
