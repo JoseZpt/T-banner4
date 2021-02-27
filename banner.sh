@@ -1,34 +1,17 @@
 #!/bin/bash
 
-b="\033[0m"         #Blanco
-b1="$b\033[1;37m"   #Blanco2
-r="${b}\033[1;31m"  #Rojo
-r1="${b}\033[31m"   #Rojo2
-A="${b}\033[1;34m"  #Azul
-A1="${b}\033[34m"   #Azul2
-ac="${b}\e[1;36m"   #Azul3
-ac1="${b}\e[36m"    #Azul4
-v="${b}\033[1;32m"  #Verde
-v1="${b}\033[32m"   #Verde2
-m="$b\033[1;35m"    #Morado
-m1="$b\033[35m"     #Morado2
-a="$b\033[1;33m"    #Amarillo
-a1="$b\033[33m"     #Amarillo2
-g="${b}\033[1;30m"  #Gris
-cy="$b\033[38;2;23;147;209m" #Cyan
-jk="$(ping -c 1 -q www.google.com >&/dev/null; echo $?)" #Coneccion de internet
-pwdbanner=$PWD #Ruta actual
+#lib
+  source src/lib/* #libreria de colores
+
+#variable
+  pass=$(base64 -d src/certs/.data.key)#decodifica el archivo
+  jk="ping -c 1 -q www.google.com >&/dev/null; echo $?" #Coneccion de internet
+  pwdbanner=$PWD #Ruta actual
 
 #Salida forzada
 trap Adios INT
-Adios() {
-  sleep 0.3
-  printf "\n$v [$b1+$v]${b1} Finalizado\n"
-  printf "$v [$b1+$v]${b1} JIN26$b\n\n"
-  sleep 0.3
-  exit
-}
 
+read
 #Datos del autor
 autor() {
   sleep 0.0
@@ -43,23 +26,19 @@ case $(command -v figlet && command -v python2 && command -v setterm && command 
   "")
     case $jk in
       0)
+        clear
+        echo "${v}Instalando Dependencias..!$b\n"
+        sudo apt install -y figlet
+        #ls /usr/share/figlet
+        #http://patorjk.com/software/taag/
+        sudo apt install -Y setterm
+        sudo apt-get install neovim;
+        pkg install -y python2
         ;;
       *)
         -e "\n$r[-]$b1 banner:$r No Hay Conexion A Internet.\n$b"
         exit
     esac
-  clear
-  apt install -y figlet
-  #ls /usr/share/figlet
-  #http://patorjk.com/software/taag/
-  apt install -Y setterm
-  figlet -cf big FAIL
-  sleep 0.5
-  echo "${v}Instalando Dependencias..!$b\n"
-  sudo apt-get install neovim;
-  pkg install -y python2
-  source 'banner'
-  exit
 esac
 
 #Listado y seleccion del banner
@@ -71,7 +50,9 @@ banner() {
   sleep 0.5
   echo -e "${v}Elige un  banner:"
   echo -e "\n
-  $A[${b1}01$A]${b1} Hacker
+  for img in Hacker; do
+    $A[${b1}01$A]${b1} Hacker
+  done
   $A[${b1}02$A]${b1} Hacker2
   $A[${b1}03$A]${b1} Ruby
   $A[${b1}04$A]${b1} Bash
@@ -229,7 +210,7 @@ titilo() {
   setterm -foreground green;
   figlet -cf slant Banner;
   autor
-  echo -ne "${v}Defaul 40
+  echo -ne "${v}Defaul 4
   Cuantas veces quiere que titile: "
   read veces
 }
@@ -273,6 +254,16 @@ linux-gnu)
 #alias de linux
 echo "#User default
 alias vim='vim -p'
+
+# some more ls aliases y tree
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias tree='tree -C'
+alias treed='tree -dQ'
+alias treel='tree -ph'
+
+pwdjin='/data/data/com.termux/files/home/.Jin/kali/Kali-fs/root/Desktop/
 setterm -foreground red
 figlet -cf big \"JIN26\";
 python2 $pwdbanner/Banner.py
@@ -310,7 +301,6 @@ darwin*)
 ;;
 esac
 
-rm Banner.py &>> /dev/null
 echo "#!/bin/python2
 #coding=utf-8
 import os,sys,time
@@ -327,7 +317,7 @@ echo "os.system(\"clear\")
 maung(banner)" >> Banner.py
 case $veces in
   "")
-    veces=40
+    veces=4
     i=1
     while [ $i -le $veces ]; do
       i=$(($i + 1))
