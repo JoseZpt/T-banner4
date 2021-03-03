@@ -1,41 +1,47 @@
-#!/bin/python2
-#coding=utf-8
-import os,sys,time
-def maung(n):
-  for m in n + '\n':
-    sys.stdout.write(m)
-    sys.stdout.flush()
-    time.sleep(0.001)
-banner = """
-[0m[1;31m
-                                        :`  .
-                                       -s- -o.
-                                       -do./d+`
-                           .`-+:-`:o:` -hd+/dh:
-                       .+++++mmmdhNmdy++dmhshds-
-                    ..-oNNNNNNNNNNNNNNmmmmmdmdds-
-                  +hdmmNNNNNNNmmmmmNNNmmmmmmdddds:`
-                -+mNNNNNdy+::-----:+shmmmmmddddddy:
-               .sdNNNNNd+-           `-ohmmmddddhddo`
-              `:dNNNNh-..               .+hdddddhshms.
-             `:dmmNNN:..                  .sddddddhmmy-
-             .osmNmNm-..                    :sdddddmmmo'
-             `:NNNNNs..                      ./ydddmmh-`
-               sdmNNNNs-                         -odmmmms-
-              `-.:mNNNNd+.                         .ommmmmh-
-                 `ydhmNNNds:.                       +mmmmh.
-                   .`:odmNNNds/.`                    -mmh+``
-                       `.-+ydmNNmds+-`                -:.`
-                         ``-/oydmNNmyo-
-                                `.:oymmmh+.
-                                    `-ohmmo.
-                                         .odd:
-                                           `od:
-                                             /d`
-                                              y.
-                                             .`[0m"""
-os.system("clear")
-maung(banner)
-os.system("clear")
-print (banner)
-print
+#!/bin/bash
+logo () {
+  setterm -foreground red
+  figlet -cf big JIN26
+  sleep 0.1
+  echo -e "\033[0m\033[38;2;23;147;209m"
+  printf '                                  ...`
+                             .+ss+//oss:`
+                         `:oy+-       `:ss+.
+                      `/ss/`              -oyo-
+                   -+yo:                     `/ys/`
+               `:sy+.                           `:sy+.
+            `/ss/`                                  -+yo+
+           -h/                                         .ys`
+          `m-                                        -+ssdo
+          -d                                      :sdNNNNNd
+          :d                                  `/ymNNNNNNNNd
+          :d                               .+hNNNNNNNNNNNNd
+          :d                            -odNNNNNNNNNNNNNNNd
+          :d                         :sdNNNNNNNNNNNNNNNNNNd
+          :d                       +mNNNNNNNNNNNNNNNNNNNNNd
+          :d                      sNNNNNNNNNNNNNNNNNNNNNNNd
+          :d                      hNNNNNy`yyNNNNNNNNNNNNNNd
+          :d                      hNNNNh-.:sNNNNNNNNNNNNNNd
+          :d                      hNNNh`+NNNNNNNNNNNNNNNNNd
+          -d                      hNNNy  `./mNNNNNNNNNNNNNd
+          `m.                     hNNNNdyy- dNNNNNhmNNNNNNs
+           :d:                    hNNNNNmh./NNmy/-+mNNNNNy`
+            `+ys:`                hNNNh`` yNNNoodNNNNNmy:
+               `/yy/.             hNNNNmh/mNNNNNNNNdo-
+                  `:syo-          hNNNNNNNNNNNNNh+.
+                      .+ys:`      hNNNNNNNNNms/`
+                         `/sy+.   yNNNNNNdo-
+                             -oyo/+mNmy/.
+                                `-:::'; sleep 0.5
+  echo -e "\033[0;40m"
+  setterm -foreground green
+  figlet -cf big linux-gnu
+  echo -e "\033[0m"
+}
+veces=4
+t=0
+while [ $t -le $veces ]; do
+    ((++t))
+    clear
+    logo
+done

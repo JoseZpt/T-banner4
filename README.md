@@ -16,13 +16,15 @@ Cuenta con mas de 14 banners pre-establecidos y cuenta con 1 opcion para agregar
 
 * ` apt update && apt -y upgrade`
 * ` pkg install -y git `
-* ` pkg install -y python2 `
 * ` termux-setup-storage `
 * ` git clone https://github.com/JIN26/Banner.git `
 * ` cd banner`
-* ` chmod +x banner`
-* ` ./banner `
+* ` chmod +x index.sh`
+* ` ./index.sh `
 
-# Creditos
+``` shell
+    whatis
+```
+ # Creditos
 <li><a href="https://github.com/DeepSociety">DeepSociety</font></a></li>
 <a href="https://github.com/Anonymous-Zpt/T-Banner4">Anonymous-Zpt</a>
