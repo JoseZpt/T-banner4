@@ -1,0 +1,18 @@
+#FUNCIONES
+
+    Adios() {
+        sleep 0.3
+        printf "\n${color["Verde"]} [${color["Blanco1"]}+${color["Verde"]}]${color["Blanco1"]} Finalizado\n"
+        printf "${color["Verde"]} [${color["Blanco1"]}+${color["Verde"]}]${color["Blanco1"]} JIN26color["Blanco"]\n\n"
+        sleep 0.3
+        exit
+    }
+
+    Autor() {
+        sleep 0.0
+        echo -e "
+        ${color["Azul"]}[${color["Blanco1"]}+${color["Azul"]}]${color["Blanco1"]} Creador:${color["Cyan"]}    JIN26
+        ${color["Azul"]}[${color["Blanco1"]}+${color["Azul"]}]${color["Blanco1"]} Herramienta:${color["Morado"]} Banner
+        ${color["Azul"]}[${color["Blanco1"]}+${color["Azul"]}]${color["Blanco1"]} GitHub:${color["Amarillo"]}      https://github.com/JIN26\n"
+    }
+
