@@ -55,10 +55,7 @@
             ;;
     esac
 #var
-    alias pwdk="$HOME/.Jin/kali/Kali-fs/root/Desktop"
-
+    PWDK="$HOME/.Jin/kali/Kali-fs/root/Desktop"
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\@\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 # Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
     alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-    . $PWD/alias
